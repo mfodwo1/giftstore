@@ -1,0 +1,20 @@
+# Ignore vendor directories
+/vendor
+
+# Ignore composer lock file
+composer.lock
+
+# Ignore node_modules directory
+node_modules
+
+# Ignore log files
+*.log
+
+# Ignore user uploads directory
+/user/uploads
+
+# Ignore cache files
+/cache
+
+# Ignore config files with sensitive information
+/config.php
