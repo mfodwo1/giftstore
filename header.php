@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web Store</title>
+  <title>Regal Store</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -20,40 +20,22 @@
     <?php
 session_start();
 
-// Generate a unique identifier for the user if one doesn't exist already
-if (!isset($_SESSION['user_id'])) {
-  $_SESSION['user_id'] = uniqid();
+function is_user_logged_in() {
+  return isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 }
 
-// Connect to the database using PDO
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "regal_store";
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Error connecting to the database: " . $e->getMessage());
+function get_user_firstname() {
+  if (is_user_logged_in()) {
+      return $_SESSION["fname"];
+  } else {
+      return "";
+  }
+}
+function logout_user() {
+  session_destroy();
+  header("Location: login.php");
 }
 
-if(isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-
-    // Get the number of items in the user's cart from the database
-    $stmt = $pdo->prepare("SELECT SUM(quantity) as total_items FROM cart WHERE user_id = :user_id");
-    $stmt->bindParam(":user_id", $user_id);
-    $stmt->execute();
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Display the number of items in the user's cart
-    $total_items = $row['total_items'];
-    echo "<span class='cart-items'>$total_items</span>";
-} else {
-    echo "<span class='cart-items'>0</span>";
-}
 ?>
 
     <?php
@@ -62,7 +44,7 @@ if(isset($_SESSION['user_id'])) {
 
         <nav class="navbar navbar-expand-lg">
           <div class="container">
-            <a class="navbar-brand" href="#index.html">My Web Store</a>
+            <a class="navbar-brand" href="#index.html">Regal Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <!--<span class="navbar-toggler-icon"></span> --><i class="fas fa-bars"></i>
             </button>
@@ -101,20 +83,38 @@ if(isset($_SESSION['user_id'])) {
                 </div>
                   <!-- <a id="cart" class="nav-link" href="#"><i class="fas fa-shopping-cart cart-icon"></i></a> -->
                 </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login/signup</a>
-                </li>
+                <!-- if user is logged in, show name and dropdown with logout option -->
+                <?php if (is_user_logged_in()): ?>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <?php echo $_SESSION["fname"]; ?> <i class="bi bi-caret-down-fill"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <!-- <li><a class="dropdown-item" href="#" onclick="logout_user()">Logout</a></li> -->
+
+                      <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    </ul>
+                  </li>
+                <!-- if user is not logged in, show login and register links -->
+                <?php else: ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="register.php">Register</a>
+                  </li>
+                <?php endif; ?>
                 
               </ul>
                 
                
-              <form class="form-search">
-                <input type="text" placeholder="Search">
+              <form class="form-search" action="search.php" method="GET">
+                <input type="text" id="searchTerm" placeholder="Search" name="searchTerm">
                 <input type="submit" value="Search">
               </form>
             </div>
           </div>
         </nav>
+        
       </header>
       

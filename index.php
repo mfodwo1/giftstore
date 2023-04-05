@@ -32,42 +32,42 @@
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Birthday Gifts"> -->
         <h3 class="category-title">Birthday Gifts</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Wedding Gifts"> -->
         <h3 class="category-title">Wedding Gifts</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Valentine's Day Gifts"> -->
         <h3 class="category-title">Valentine's Day Gifts</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Gifts for Kids"> -->
         <h3 class="category-title">Gifts for Kids</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Gifts for Her"> -->
         <h3 class="category-title">Gifts for Her</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="category-item">
         <!-- <img src="https://via.placeholder.com/350x250" alt="Gifts for Him"> -->
         <h3 class="category-title">Gifts for Him</h3>
-        <a href="#" class="btn btn-primary stretched-link">View Products</a>
+        <a href="product.php" class="btn btn-primary stretched-link">View Products</a>
       </div>
     </div>
   </div>

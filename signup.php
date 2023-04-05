@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $stmt->execute([$fname, $lname, $email, $phone, $hashed_password]);
 
   // Redirect to a confirmation page or the homepage
-  header("Location: confirmation.php");
+  header("Location: login.php");
   exit();
 }
 ?>

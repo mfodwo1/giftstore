@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-+H3qZ1YV9kzTjQ8+ZMcewJRQJdGy+HfhS7VxjXdL0Z7G9J4I4WWjK4Pw0QkV7sjgSQQS47V7I0IKi/t0YpX9QA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary-color: #1C768F;
+            --accent-color-1: #FA991C;
+            --accent-color-2: #032539;
+            --background-color: #FBF3F2;
+            --text-color: #032539;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container{
+            max-width: 50vw;
+            margin: auto;
+            padding: 10px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(28, 118, 143, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #166078;
+            border-color: #166078;
+        }
+        
+        .form-label {
+            color: var(--primary-color);
+            font-weight: bold;
+            display: block;
+        }
+        .mb-3{
+            padding: 20px 0;
+        }
+        input, textarea{
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Products</h1>
+        <form method="post" action="add_product.php" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="product_code" class="form-label">Product Code:</label>
+                <input type="text" name="product_code" id="product_code" class="form-control">
+            </div>
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name:</label>
+                <input type="text" name="name" id="name" class="form-control">
+            </div>
+        
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="description" id="description" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" name="price" id="price" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="qty" class="form-label">Quantity:</label>
+                <input type="number" name="qty" id="qty" class="form-control">
+            </div>
+        
+            <div class="mb-3">
+                <label for="image1" class="form-label">Image 1:</label>
+                <input type="file" name="image1" id="image1" class="form-control">
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
+
+

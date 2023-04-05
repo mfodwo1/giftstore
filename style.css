@@ -235,6 +235,7 @@
     color: var(--background-color);
     transition: all 0.2s ease-in-out;
     font-size: 0.8rem;
+    padding: 3px;
   }
   .add-to-cart-btn:hover {
     background-color: var(--primary-color);
